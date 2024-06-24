@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Pinjaman Pupuk Bupati Gapoktan Sampurna</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  .container {
+    width: 95%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  .marquee-container {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    background-color: #90b65c;
+    color: #fff;
+  }
+
+  .marquee-content {
+    position: absolute;
+    white-space: nowrap;
+    animation: marquee 40s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(30%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .marquee-item {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 15px;
+    line-height: 50px;
+  }
+  h2 {
+    font-size: 25px;
+    text-align: center;
+  }
+  /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 9px; /* Decreased font size */
+        }
+
+        th, td {
+            padding: 5px; /* Decreased padding */
+            text-align: left;
+            border: 1px solid #ddd; /* Adding border for cells */
+        }
+
+        th {
+            background-color: #7a9e46; /* Darker green for table header */
+            color: #fff;
+            text-align: center;
+        }
+        td{
+        text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray for even rows */
+        }
+
+        tr:hover {
+            background-color: #ddd; /* Darker gray on hover */
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Adjust the width of the modal */
+        }
+
+        /* Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn button {
+            padding: 10px 20px;
+            background-color: #7a9e46;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn button:hover {
+            background-color: #90b65c; /* Lighter green on hover */
+        }
+      .signature-container {
+      display: flex;
+      justify-content: space-between; /* Membuat tanda tangan berjejer dengan jarak yang sama */
+      align-items: center; /* Memusatkan tanda tangan secara vertikal */
+    }
+
+    .signature {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .signature img {
+      max-width: 100px;
+      height: auto;
+      margin: 20px 0;
+    }
+
+    .stamp {
+      position: absolute;
+      bottom: -10px; /* Penempatan vertikal */
+      right: -20px; /* Penempatan horizontal */
+      z-index: 2; /* Atur kedalaman tumpukan */
+      max-width: 10px;
+      height: auto;
+
+    }
+
+    .name {
+      font-weight: bold;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Data Pinjaman Pupuk Bupati Gapoktan Maju Rukun Tahun 2024</h2>
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <div class="marquee-item"><b>Selamat Datang!</b></div>
+      <div class="marquee-item"><b> Info Seputar Pinjaman Pupuk Bupati Akan Muncul Disini!</b></div>
+       <div class="marquee-item"><b>Jika Terdapat KesaLahan Input Data, Harap Segera Menghubungi Gapoktan </b></div>
+      <div class="marquee-item"> <b> Batas Akhir Pembayaran Pupuk Pinjamam Bupati Berakhir Tgl 25 November 2024</b></div>
+      <div class="marquee-item"><b> Untuk Kelompok Berkat Mulia, Sumber Tani dan Raudah Ditunggu Datanya😊</b></div>
+      
+    </div>      
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Kelompok</th>
+        <th>Nama</th>
+        <th>Urea (Rp.125.000)</th>
+        <th>NPK (Rp.130.000)</th>
+        <th>Jumlah Bayar</th>
+        <th>Status Bayar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Kelompok Bunga Padi II -->
+     
+  <tr>
+    <td rowspan="11"><b>Bunga Padi II</b></td>
+    <td>Dudung</td>
+    <td>2</td>
+    <td>2</td>       
+    <td>Rp. 510.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Emuh</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Rp. 510.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Mukhsin</td>
+    <td>4</td>
+    <td>2</td>
+    <td>Rp. 760.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Muhammad Misransyah</td>
+    <td>1</td>
+    <td>2</td>
+    <td>Rp. 385.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>M.Saubari</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Rp. 510.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Muhammad Nur</td>
+    <td>2</td>
+    <td>1</td>
+    <td>Rp. 380.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Horman</td>
+    <td>4</td>
+    <td>3</td>
+    <td>Rp. 890.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Fauji</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Rp. 510.000</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Ahmad Nur Rohman</td>
+    <td>1</td>
+    <td>1</td>
+    <td>Rp. 255.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Arbani</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Rp. 510.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>salim</td>
+    <td>1</td>
+    <td>1</td>
+    <td>Rp. 255.000</td>
+    <td>-</td>
+  </tr>
+
+
+      <tr>
+        <td colspan="2" style="background-color: #d2e8bc;"><b>Total Perkelompok</b></td>
+        <td style="background-color: #d2e8bc;"><b>23</b></td>
+        <td style="background-color: #d2e8bc;"><b>20</b></td>       
+          <td style="background-color: #d2e8bc;"><b>Rp.  5.475.000</b></td>
+          <td style="background-color: #d2e8bc;"><b>Blm ada </b></td>
+          </tr>
+      <!-- Kelompok Sepakat -->
+
+  <tr>
+    <td rowspan="6"><b>Sepakat</b></td>
+    <td>Asat</td>
+    <td>1</td>
+    <td>1</td>
+    <td>Rp. 255.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Irwan Gunawan</td>
+    <td>3</td>
+    <td>3</td>
+    <td>Rp. 765.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Darso</td>
+    <td>1</td>
+    <td>1</td>
+    <td>Rp. 255.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Ranem</td>
+    <td>1</td>
+    <td>1</td>
+    <td>Rp. 255.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>jaya</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Rp. 510.000</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>ikin</td>
+    <td>1</td>
+    <td>-</td>
+    <td>Rp. 125.000</td>
+    <td>-</td>
+  </tr>
+
+
+
+      <tr>
+        <td colspan="2" style="background-color: #d2e8bc;"><b>Total Perkelompok</b></td>
+        <td style="background-color: #d2e8bc;"><b>9</b></td>
+        <td style="background-color: #d2e8bc;"><b>8</b></td>
+          <td style="background-color: #d2e8bc;"><b> Rp.  2.165.000</b></td>
+          <td style="background-color: #d2e8bc;"><b>Blm ada </b></td>
+          </tr>
+
+      <!-- Setuju-->
+  <tr>
+  <td rowspan="20"><b>Setuju</b></td>
+  <td>Suranto</td>
+  <td>2</td>
+  <td>2</td>
+  <td>Rp. 510.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Mardiansyah</td>
+  <td>2</td>
+  <td>1</td>
+  <td>Rp. 380.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Wahyudi</td>
+  <td>2</td>
+  <td>1</td>
+  <td>Rp. 380.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Paridah</td>
+  <td>1</td>
+  <td>2</td>
+  <td>Rp. 385.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Sidi</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Ardani</td>
+  <td>1</td>
+  <td>2</td>
+  <td>Rp. 385.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Sapwani</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Imberi Fani</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Junaidi</td>
+  <td>2</td>
+  <td>1</td>
+  <td>Rp. 380.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Abdussalam</td>
+  <td>-</td>
+  <td>1</td>
+  <td>Rp. 130.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Norhayah</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Siti Norhasanah</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Husaini</td>
+  <td>2</td>
+  <td>2</td>
+  <td>Rp. 510.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Darmawi</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 355.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Yuliaman</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 355.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Darmasiah</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 355.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Sapwani</td>
+  <td>1</td>
+  <td>2</td>
+  <td>Rp. 385.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Ramli</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Hudari</td>
+  <td>2</td>
+  <td>2</td>
+  <td>Rp. 510.000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Marhamis</td>
+  <td>1</td>
+  <td>-</td>
+  <td>Rp. 125.000</td>
+  <td>-</td>
+</tr>
+
+      <tr>
+          <!-- setuju -->
+        <td colspan="2" style="background-color: #d2e8bc;"><b>Total Perkelompok</b></td>
+        <td style="background-color: #d2e8bc;"><b>25</b></td>
+        <td style="background-color: #d2e8bc;"><b>25</b></td>
+          <td style="background-color: #d2e8bc;"><b>Rp.  6.375.000</b></td>
+          <td style="background-color: #d2e8bc;"><b>Blm ada </b></td>
+      </tr>
+    
+     <!-- Bunga Padi -->
+
+    <tr>
+      <td rowspan="41"><b>Bunga Padi</b></td>
+      <td>Rusli Bakri</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Rp. 760.000</td>
+    </tr>
+    <tr>
+      <td>Hormansyah</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Rp. 1.275.000</td>
+    </tr>
+    <tr>
+      <td>Aspani</td>
+      <td>3</td>
+      <td>2</td>
+      <td>Rp. 635.000</td>
+    </tr>
+    <tr>
+      <td>Humaidi</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Rp. 380.000</td>
+    </tr>
+    <tr>
+      <td>H.Sarmadi</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Rp. 510.000</td>
+    </tr>
+    <tr>
+      <td>Siti Sarah</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Aspni/Ondel</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Rp. 510.000</td>
+    </tr>
+    <tr>
+      <td>Royani</td>
+      <td>-</td>
+      <td>2</td>
+      <td>Rp. 260.000</td>
+    </tr>
+    <tr>
+      <td>Rusman</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Imansyah</td>
+      <td>3</td>
+      <td>3</td>
+      <td>Rp. 765.000</td>
+    </tr>
+    <tr>
+      <td>Syarbani</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Rp. 510.000</td>
+    </tr>
+    <tr>
+      <td>Hermasyah</td>
+      <td>1</td>
+      <td>-</td>
+      <td>Rp. 125.000</td>
+    </tr>
+    <tr>
+      <td>M.Nasir</td>
+      <td>1</td>
+      <td>-</td>
+      <td>Rp. 125.000</td>
+    </tr>
+    <tr>
+      <td>Kasiro</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Abdullah</td>
+      <td>-</td>
+      <td>2</td>
+      <td>Rp. 260.000</td>
+    </tr>
+    <tr>
+      <td>Muhsin</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>M.Isra</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Rp. 510.000</td>
+    </tr>
+    <tr>
+      <td>Syahran</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Arif Maulana</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Rp. 640.000</td>
+    </tr>
+    <tr>
+      <td>Ardani</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Rp. 510.000</td>
+    </tr>
+    <tr>
+      <td>Saman</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Anang Sayuti</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Rp. 510.000</td>
+    </tr>
+    <tr>
+      <td>Nurbainah</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Rp. 510.000</td>
+    </tr>
+    <tr>
+      <td>Syaprudin</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Rp. 285.000</td>
+    </tr>
+    <tr>
+      <td>Sadri</td>
+      <td>-</td>
+      <td>2</td>
+      <td>Rp. 260.000</td>
+    </tr>
+    <tr>
+      <td>Nurkani</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Rp. 380.000</td>
+    </tr>
+    <tr>
+      <td>Abdul Muis</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Rp. 640.000</td>
+    </tr>
+    <tr>
+      <td>Hadriansyah</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Suhaimi</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Rp. 285.000</td>
+    </tr>
+    <tr>
+      <td>Mahyuni</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Rp. 380.000</td>
+    </tr>
+    <tr>
+      <td>Andi</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Rp. 385.000</td>
+    </tr>
+    <tr>
+      <td>Lukman</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Rp. 515.000</td>
+    </tr>
+    <tr>
+      <td>Wahyudin</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Rp. 380.000</td>
+    </tr>
+    <tr>
+      <td>Subeli</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Amiradi</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>M. Nur</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Rp. 640.000</td>
+    </tr>
+    <tr>
+      <td>Asikin</td>
+      <td>1</td>
+      <td>-</td>
+      <td>Rp. 125.000</td>
+    </tr>
+    <tr>
+      <td>Barlian</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Rp. 255.000</td>
+    </tr>
+    <tr>
+      <td>Masra</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Rp. 1.275.000</td>
+    </tr>
+    <tr>
+      <td>Hardiansyah</td>
+      <td>3</td>
+      <td>2</td>
+      <td>Rp. 635.000</td>
+    </tr>
+    <tr>
+      <td>Lian</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Rp. 760.000</td>
+    </tr>
+ <!-- bunga padi -->
+       <td colspan="2" style="background-color: #d2e8bc;"><b>Total Perkelompok</b></td>
+        <td style="background-color: #d2e8bc;"><b>72</b></td>
+        <td style="background-color: #d2e8bc;"><b>72</b></td>
+          <td style="background-color: #d2e8bc;"><b>Rp.  18.360.000</b></td>
+          <td style="background-color: #d2e8bc;"><b>Blm ada </b></td>
+      </tr>
+<!-- Batuah -->
+<tr>
+  <td rowspan="16"><b>Batuah</b></td>
+  <td>Hermasyah</td>
+  <td>1</td>
+  <td>2</td>
+  <td>Rp. 285.000</td>
+</tr>
+<tr>
+  <td>Nasrudin Ahmad</td>
+  <td>-</td>
+  <td>6</td>
+  <td>Rp. 780.000</td>
+</tr>
+<tr>
+  <td>Musliadi</td>
+  <td>6</td>
+  <td>4</td>
+  <td>Rp. 1.270.000</td>
+</tr>
+<tr>
+  <td>Saniah</td>
+  <td>1</td>
+  <td>-</td>
+  <td>Rp. 125.000</td>
+</tr>
+<tr>
+  <td>Suhaimi</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+</tr>
+<tr>
+  <td>Tinah</td>
+  <td>2</td>
+  <td>-</td>
+  <td>Rp. 250.000</td>
+</tr>
+<tr>
+  <td>Radian Kamilah</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+</tr>
+<tr>
+  <td>Nur Kadi</td>
+  <td>2</td>
+  <td>-</td>
+  <td>Rp. 250.000</td>
+</tr>
+<tr>
+  <td>Nasri</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+</tr>
+<tr>
+  <td>Nursehan</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+</tr>
+<tr>
+  <td>Budiono</td>
+  <td>2</td>
+  <td>-</td>
+  <td>Rp. 250.000</td>
+</tr>
+<tr>
+  <td>Arbain</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+</tr>
+<tr>
+  <td>Nurhan Ilham</td>
+  <td>6</td>
+  <td>6</td>
+  <td>Rp. 1.530.000</td>
+</tr>
+<tr>
+  <td>Sabran</td>
+  <td>2</td>
+  <td>2</td>
+  <td>Rp. 510.000</td>
+</tr>
+<tr>
+  <td>Mahmudin</td>
+  <td>1</td>
+  <td>3</td>
+  <td>Rp. 515.000</td>
+</tr>
+<tr>
+  <td>Husin</td>
+  <td>2</td>
+  <td>2</td>
+  <td>Rp. 510.000</td>
+</tr>
+      <!-- batuah -->
+       <td colspan="2" style="background-color: #d2e8bc;"><b>Total Perkelompok</b></td>
+        <td style="background-color: #d2e8bc;"><b>30</b></td>
+        <td style="background-color: #d2e8bc;"><b>30</b></td>
+          <td style="background-color: #d2e8bc;"><b>Rp.  7.650.000</b></td>
+          <td style="background-color: #d2e8bc;"><b>Blm ada </b></td>
+      </tr>
+<!-- Budi Berkat -->
+<tr>
+  <td rowspan="14"><b>Budi Berkat</b></td>
+  <td>Jubaidi</td>
+  <td>-</td>
+  <td>3</td>
+  <td>Rp. 390.000</td>
+</tr>
+<tr>
+  <td>Jainal</td>
+  <td>1</td>
+  <td>2</td>
+  <td>Rp. 385.000</td>
+</tr>
+<tr>
+  <td>Hj. Masitah</td>
+  <td>2</td>
+  <td>2</td>
+  <td>Rp. 510.000</td>
+</tr>
+<tr>
+  <td>Ardani</td>
+  <td>-</td>
+  <td>2</td>
+  <td>Rp. 260.000</td>
+</tr>
+<tr>
+  <td>Marni</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+</tr>
+<tr>
+  <td>Sandi</td>
+  <td>1</td>
+  <td>1</td>
+  <td>Rp. 255.000</td>
+</tr>
+<tr>
+  <td>Parji</td>
+  <td>-</td>
+  <td>2</td>
+  <td>Rp. 260.000</td>
+</tr>
+<tr>
+  <td>Arnian</td>
+  <td>2</td>
+  <td>-</td>
+  <td>Rp. 250.000</td>
+</tr>
+<tr>
+  <td>Marsinah</td>
+  <td>3</td>
+  <td>1</td>
+  <td>Rp. 505.000</td>
+</tr>
+<tr>
+  <td>Arbain</td>
+  <td>2</td>
+  <td>-</td>
+  <td>Rp. 250.000</td>
+</tr>
+<tr>
+  <td>Samsul Bahri</td>
+  <td>2</td>
+  <td>2</td>
+  <td>Rp. 510.000</td>
+</tr>
+<tr>
+  <td>Satera</td>
+  <td>4</td>
+  <td>-</td>
+  <td>Rp. 500.000</td>
+</tr>
+<tr>
+  <td>Suhaimi</td>
+  <td>2</td>
+  <td>1</td>
+  <td>Rp. 380.000</td>
+</tr>
+<tr>
+  <td>Junaidi</td>
+  <td>3</td>
+  <td>2</td>
+  <td>Rp. 635.000</td>
+</tr>
+      <!-- budi berkat -->
+    <td colspan="2" style="background-color: #d2e8bc;"><b>Total Perkelompok</b></td>
+        <td style="background-color: #d2e8bc;"><b>20</b></td>
+        <td style="background-color: #d2e8bc;"><b>25</b></td>
+          <td style="background-color: #d2e8bc;"><b>Rp.  5.750.000</b></td>
+          <td style="background-color: #d2e8bc;"><b>Blm ada </b></td>
+      </tr>
+
+
+      
+      
+      
+    </tbody>
+  </table>
+</div>
+        <!-- ttd -->
+        <p style="text-align: center;"><b>Sampurna, 1 Juni 2024 </b></p>
+
+<div class="container">
+  <div class="signature-container">
+    <div class="signature">
+      <p><strong>Ketua Gapoktan</strong></p>
+      <img src="ttd dani.png" alt="Tanda Tangan Ketua">
+      <p class="name">ARDANI</p>
+      <img class="stamp" src="stempel.png" alt="Stempel Ketua">
+    </div>
+
+    <div class="signature">
+      <p><strong>Sekretaris Gapoktan</strong></p>
+      <img src="ttd bani.png" alt="Tanda Tangan Sekretaris">
+      <p class="name">ARBANI</p>
+    </div>
+
+    <div class="signature">
+      <p><strong>Bendahara Gapoktan</strong></p>
+      <img src="ttd ubi.png" alt="Tanda Tangan Bendahara">
+      <p class="name">SUBELI</p>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

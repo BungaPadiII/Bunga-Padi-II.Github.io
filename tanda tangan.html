@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Pinjaman Pupuk Bupati Gapoktan Sampurna</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .signature-container {
+      display: flex;
+      justify-content: space-between; /* Membuat tanda tangan berjejer dengan jarak yang sama */
+      align-items: center; /* Memusatkan tanda tangan secara vertikal */
+    }
+
+    .signature {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .signature img {
+      max-width: 100px;
+      height: auto;
+      margin: 20px 0;
+    }
+
+    .stamp {
+      position: absolute;
+      bottom: -10px; /* Penempatan vertikal */
+      right: -20px; /* Penempatan horizontal */
+      z-index: 2; /* Atur kedalaman tumpukan */
+      max-width: 10px;
+      height: auto;
+
+    }
+
+    .name {
+      font-weight: bold;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="signature-container">
+    <div class="signature">
+      <p><strong>Ketua Gapoktan</strong></p>
+      <img src="ttd dani.png" alt="Tanda Tangan Ketua">
+      <p class="name">ARDANI</p>
+      <img class="stamp" src="stempel.png" alt="Stempel Ketua">
+    </div>
+
+    <div class="signature">
+      <p><strong>Sekretaris Gapoktan</strong></p>
+      <img src="ttd bani.png" alt="Tanda Tangan Sekretaris">
+      <p class="name">ARBANI</p>
+    </div>
+
+    <div class="signature">
+      <p><strong>Bendahara Gapoktan</strong></p>
+      <img src="ttd ubi.png" alt="Tanda Tangan Bendahara">
+      <p class="name">SUBELI</p>
+    </div>
+  </div>
+</div>
+
+<p style="text-align: center;"><b>Sampurna, 1 Juni 2024 </b></p>
+
+</body>
+</html>

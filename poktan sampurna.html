@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pertanian</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f1e5; /* Light beige for a natural feel *
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #5e8c31; /* Green for crops */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            margin-top: 5px;
+            font-size: 14px; /* Decreased font size for the motto */
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #7a9e46; /* Darker green for navigation */
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #90b65c; /* Lighter green on hover */
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Map Styles */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            background-color: #f9f9f9; /* Light gray for contact info background */
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 18px; /* Font size for contact links */
+        }
+
+        .contact-info a:hover {
+            color: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #5e8c31; /* Green, matching the header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            clear: both;
+            margin-top: 20px;
+        }
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.5;
+        }
+        .kelompok-sampurna-1 { background-color: #f0f8ff; /* Light Blue */ } .kelompok-sampurna-2 { background-color: #ffe4e1; /* Misty Rose */ } 
+        
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border: 2px solid #008000;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            font-size: 9px;
+            cursor: pointer;
+            color: #008000;
+        }
+
+        th {
+            background-color: #008000;
+            color: #fff;
+            border-right: 1px solid #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .narrow-column { 
+            background-color: #98fb98;
+        }
+
+        /* Floating window style */
+        .floating-window {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .floating-window-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            background-color: #fff;
+            z-index: 2;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: #000;
+        }
+
+        .profile-heading {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #008000;
+            text-align: center;
+        }
+
+        .profile-image-container {
+    text-align: center; /* Untuk membuat gambar berada di tengah */
+}
+
+    .profile-image {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;            
+        }
+
+        .biodata-label {
+            font-weight: bold;
+        }
+
+        .land-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        .land-info-table th,
+        .land-info-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 10px;
+        }
+
+        .land-info-table th {
+            background-color: #008000;
+            color: #fff;
+        }
+
+        .land-info-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bunga Padi II</h1>
+    <h2>Bersatu Dalam Pertanian, Menuju Kesuksesaan</h2> <!-- Decreased font size for the motto -->
+</header>
+
+<nav>
+    <a href="beranda.html">Beranda</a>
+    <a href="adart.html">Adart</a>
+    <a href="struktur.html">Struktur</a>
+    <a href="alsintan.html">Alsintan</a>
+    <a href="rdk,rdkk.html">Rdk/Rdkk</a>
+    <a href="kegiatan">Kegiatan</a>
+    <a href="alsintan.html">Luas Lahan</a>
+    <a href="kendala.html">Kendala</a>
+    <a href="hama penyakit.html">Hama/Penyakit</a>
+    <a href="pembuatan organik.html">Pembuatan Organik</a>
+    <a href="poktan sampurna.html">Poktan Sampurna</a>
+    <a href="gapoktan.html">Gapoktan Sampurna</a>
+    <a href="kube.html">Kelembagaan Elonomi Petani (KEP)</a>
+    <a href="BPP.html">BPP Jejangkit</a>
+
+
+
+</nav>
+</head>
+<body>
+
+<div class="container">
+    <h2>Poktan Desa Sampurna</h2>
+    <table>
+        <tr>
+            <th rowspan="2">Nama Kelompok Tani</th>
+            <th colspan="3">Pengurus Kelompok Tani</th>
+            <th rowspan="2" class="member-count">Jumlah Anggota</th>
+            <th rowspan="2" class="land-info">Luas Lahan (hektar)</th>
+        </tr>
+        <tr>
+            <td class="leader narrow-column">Ketua</td>
+            <td class="secretary narrow-column">Sekretaris</td>
+            <td class="treasurer narrow-column">Bendahara</td>
+        </tr>
+        <!-- Setuju -->
+        <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Setuju', 'Poktan Setuju adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2005', 'Lanjut')">Setuju</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Sugiani', 'Desa Sampurna Rt.01 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Sugiani</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Jalan Bali No. 202, Kota B', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Mardiansyah</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')">Arbani Hasyim</td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Anggota 1', 'Anggota 2', 'Anggota 3', 'Anggota 4', 'Anggota 5', 'Anggota 6', 'Anggota 7', 'Anggota 8', 'Anggota 9', 'Anggota 10', 'Anggota 11', 'Anggota 12', 'Anggota 13', 'Anggota 14', 'Anggota 15', 'Anggota 16', 'Anggota 17', 'Anggota 18', 'Anggota 19', 'Anggota 20', 'Anggota 21', 'Anggota 22', 'Anggota 23', 'Anggota 24', 'Anggota 25', 'Anggota 26', 'Anggota 27', 'Anggota 28', 'Anggota 29', 'Anggota 30', 'Anggota 31', 'Anggota 32',  ])">37</td>
+             <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+         </tr>
+         <!-- Binga Padi -->
+        <tr>
+           <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Bunga Padi', 'Bunga Padi adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2006', 'Lanjut')">Bunga Padi</td>
+
+            <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Ardani', 'Desa Sampurna Rt.02 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Bakhtiar</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Desa Sampurna Rt.02 Rw.01 No. 55', '08123123123', '-3.192849,114.720795', 'ardani.jpg')">Ardani</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')">Subli</td>
+            <td class="member-count" data-poktan="kelompok9_anggota" onclick="showMembers('Bunga Padi II', ['Ahmad Nur Rohman','Arbani','Dudung', 'emuh', 'Fauji', 'Horman', 'Juniansyah', 'Muhammad Misransyah', 'Muhammmad Nor', 'Muhammad Saubari', 'Mukhsin', 'Mukhtar', 'Salim', 'Syamsuri', 'Wardi'  ])">68</td>
+        <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+        </tr>        
+        <!-- Batuah -->
+        <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Setuju', 'Poktan Setuju adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2005', 'Lanjut')">Batuah</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Sugiani', 'Desa Sampurna Rt.01 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Musliadi</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Jalan Bali No. 202, Kota B', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Norhan Ilham</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')">Nasrudin Ahmad </td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Anggota 1', 'Anggota 2', 'Anggota 3', 'Anggota 4', 'Anggota 5', 'Anggota 6', 'Anggota 7', 'Anggota 8', 'Anggota 9', 'Anggota 10', 'Anggota 11', 'Anggota 12', 'Anggota 13', 'Anggota 14', 'Anggota 15', 'Anggota 16', 'Anggota 17', 'Anggota 18', 'Anggota 19', 'Anggota 20', 'Anggota 21', 'Anggota 22', 'Anggota 23', 'Anggota 24', 'Anggota 25', 'Anggota 26', 'Anggota 27', 'Anggota 28', 'Anggota 29', 'Anggota 30', 'Anggota 31', 'Anggota 32',  ])">62</td>
+             <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+         </tr>
+         <!-- Budi Berkat -->
+         <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Setuju', 'Poktan Setuju adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2005', 'Lanjut')">Budi Berkat</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Sugiani', 'Desa Sampurna Rt.01 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Suhaimi</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Jalan Bali No. 202, Kota B', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Jubaidi</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')">Anang Wardani</td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Anggota 1', 'Anggota 2', 'Anggota 3', 'Anggota 4', 'Anggota 5', 'Anggota 6', 'Anggota 7', 'Anggota 8', 'Anggota 9', 'Anggota 10', 'Anggota 11', 'Anggota 12', 'Anggota 13', 'Anggota 14', 'Anggota 15', 'Anggota 16', 'Anggota 17', 'Anggota 18', 'Anggota 19', 'Anggota 20', 'Anggota 21', 'Anggota 22', 'Anggota 23', 'Anggota 24', 'Anggota 25', 'Anggota 26', 'Anggota 27', 'Anggota 28', 'Anggota 29', 'Anggota 30', 'Anggota 31', 'Anggota 32',  ])">22</td>
+             <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+         </tr>
+         <!-- Berkat Mulia -->
+         <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Setuju', 'Poktan Setuju adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2005', 'Lanjut')">Berkat Mulia</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Sugiani', 'Desa Sampurna Rt.01 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Amat Juanda</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Jalan Bali No. 202, Kota B', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Ardiansyah</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')">Misraji</td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Anggota 1', 'Anggota 2', 'Anggota 3', 'Anggota 4', 'Anggota 5', 'Anggota 6', 'Anggota 7', 'Anggota 8', 'Anggota 9', 'Anggota 10', 'Anggota 11', 'Anggota 12', 'Anggota 13', 'Anggota 14', 'Anggota 15', 'Anggota 16', 'Anggota 17', 'Anggota 18', 'Anggota 19', 'Anggota 20', 'Anggota 21', 'Anggota 22', 'Anggota 23', 'Anggota 24', 'Anggota 25', 'Anggota 26', 'Anggota 27', 'Anggota 28', 'Anggota 29', 'Anggota 30', 'Anggota 31', 'Anggota 32',  ])">24</td>
+             <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+         </tr>
+         <!-- Sumber Tani -->
+         <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Setuju', 'Poktan Setuju adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2005', 'Lanjut')">Sumber Tani</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Sugiani', 'Desa Sampurna Rt.01 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Junaidi</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Jalan Bali No. 202, Kota B', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Zaiturahman</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')"> H.Subli</td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Anggota 1', 'Anggota 2', 'Anggota 3', 'Anggota 4', 'Anggota 5', 'Anggota 6', 'Anggota 7', 'Anggota 8', 'Anggota 9', 'Anggota 10', 'Anggota 11', 'Anggota 12', 'Anggota 13', 'Anggota 14', 'Anggota 15', 'Anggota 16', 'Anggota 17', 'Anggota 18', 'Anggota 19', 'Anggota 20', 'Anggota 21', 'Anggota 22', 'Anggota 23', 'Anggota 24', 'Anggota 25', 'Anggota 26', 'Anggota 27', 'Anggota 28', 'Anggota 29', 'Anggota 30', 'Anggota 31', 'Anggota 32',  ])">29</td>
+             <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+         </tr>
+         <!-- Sepakat -->
+         <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Setuju', 'Poktan Setuju adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2005', 'Lanjut')">Sepakat</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Sugiani', 'Desa Sampurna Rt.01 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Ikin</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Jalan Bali No. 202, Kota B', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Karwih</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')">Irwan Gunawan </td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Anggota 1', 'Anggota 2', 'Anggota 3', 'Anggota 4', 'Anggota 5', 'Anggota 6', 'Anggota 7', 'Anggota 8', 'Anggota 9', 'Anggota 10', 'Anggota 11', 'Anggota 12', 'Anggota 13', 'Anggota 14', 'Anggota 15', 'Anggota 16', 'Anggota 17', 'Anggota 18', 'Anggota 19', 'Anggota 20', 'Anggota 21', 'Anggota 22', 'Anggota 23', 'Anggota 24', 'Anggota 25', 'Anggota 26', 'Anggota 27', 'Anggota 28', 'Anggota 29', 'Anggota 30', 'Anggota 31', 'Anggota 32',  ])">10</td>
+             <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+         </tr>
+         <!-- Bunga Padi II -->
+         <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Bunga Padi II', 'Poktan Bunga Padi II adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.08 Rw.04', '0858-2247-7414', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2006', 'Lanjut')">Bunga Padi II</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Arbani', 'Desa Sampurna Rt.08 Rw.04 No.5', '0812-5666-7937', '-7.2765, 112.7449', 'ardani.jpg')">Arbani</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Sampurna Rt.08 Rw.04 No.4', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Mukhsin</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.08 Rw.04 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')">Emuh </td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Ahmad Nur Rohman ', 'Arbani', 'Dudung', 'Emuh', 'Fauji', 'Horman', 'Juniansyah', ' Muhammad Misransyah', 'Muhammad Nur', 'Muhammad Saubari', 'Mukhsin', 'Mukhtar', 'Salim', 'Syamsuri', 'Wardi'  ])">15</td>
+             <td class="land-info" data-poktan="bunga_padi_ii_luas" onclick="showLandInfo('Bunga Padi II', {'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Dudung ': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Fauji': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Horman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'},'Juniansyah ': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Muhammad Misransyah': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Muhammad Nur': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Muhammad Saubari ': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Mukhsin': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Mukhtar': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'},'Salim ': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Syamsuri': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Wardi': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">30 Hektar</td>
+         </tr>
+         <!-- Raudah -->
+         <tr> 
+             <td class="poktan-info poktan-profile" data-poktan="bunga_padi" onclick="showProfile('Setuju', 'Poktan Setuju adalah kelompok petani yang bergerak dalam budidaya padi.', 'Desa Sampurna Rt.02 Rw.01', 'Belum ada', '-7.2765, 112.7449', 'panen.png', '630407102-48226-324411', '2005', 'Lanjut')">Raudah</td>
+              <td class="poktan-info leader" data-poktan="bunga_padi_ketua" onclick="showManagerInfo('Sugiani', 'Desa Sampurna Rt.01 Rw.01', '0813475', '-7.2765, 112.7449', 'ardani.jpg')">Misran</td>
+            <td class="poktan-info secretary" data-poktan="bunga_padi_sekretaris" onclick="showManagerInfo('Sekretaris', 'Jalan Bali No. 202, Kota B', '08123123123', '-7.2765, 112.7449', 'sekretaris.png')">Sarman</td>
+            <td class="poktan-info treasurer" data-poktan="bunga_padi_bendahara" onclick="showManagerInfo('Udin', 'Sampurna Rt.2 Rw.1 No. xx', 'No blm ada', '-7.2765, 112.7449', 'bunga_padi.jpg')"> Suparlan</td>
+             <td class="member-count" data-poktan="bunga_padi_anggota" onclick="showMembers('Bunga Padi', ['Anggota 1', 'Anggota 2', 'Anggota 3', 'Anggota 4', 'Anggota 5', 'Anggota 6', 'Anggota 7', 'Anggota 8', 'Anggota 9', 'Anggota 10', 'Anggota 11', 'Anggota 12', 'Anggota 13', 'Anggota 14', 'Anggota 15', 'Anggota 16', 'Anggota 17', 'Anggota 18', 'Anggota 19', 'Anggota 20', 'Anggota 21', 'Anggota 22', 'Anggota 23', 'Anggota 24', 'Anggota 25', 'Anggota 26', 'Anggota 27', 'Anggota 28', 'Anggota 29', 'Anggota 30', 'Anggota 31', 'Anggota 32',  ])">20</td>
+             <td class="land-info" data-poktan="kelompok9_luas" onclick="showLandInfo('Bunga Padi II', {'Arbani': {'Luas': '2', 'Koordinat1': '-7.3600, 112.8100', 'Koordinat2': '-7.3605, 112.8150'}, 'Sekretaris 9': {'Luas': '2', 'Koordinat1': '-7.3601, 112.8101', 'Koordinat2': '-7.3606, 112.8151'}, 'Emuh': {'Luas': '5', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Ahmad Nur Rohman': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}, 'Dudung': {'Luas': '2', 'Koordinat1': '-7.3602, 112.8102', 'Koordinat2': '-7.3607, 112.8152'}})">- Hektar</td>
+         </tr>
+                  
+    </table>
+    
+    <!-- tabel alsin -->
+    <div style="height: 20px;"></div>
+
+
+<div style="height: 20px;"></div>
+     <h2> Data Alsintan Poktan Sampurna</h2>
+
+<table>
+    <caption><h2> </h2></caption>
+   
+    
+    <thead>
+        <tr>
+            <th>Nama Kelompok Tani</th>
+            <th>Jenis Alsintan</th>
+            <th>Tahun</th>
+            <th>Status Alsintan</th>
+            <th>Kondisi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="Setuju">
+            <td rowspan="2"> Setuju</td>
+            <td>Hand Traktor Rotary Yanmar</td>
+            <td> - </td>
+            <td>KSO/Sewa</td>
+            <td> - </td>
+        </tr>
+        
+        <tr class="Setuju">
+            <td>Mesin Pompa Air (Alkon))</td>
+            <td> - </td>
+            <td>Hibah</td>
+            <td> - </td>
+        </tr>
+        
+        <tr class="Bunga-Padi">
+            <td rowspan="2"> Bunga Padi</td>            
+            <td>Mesin Pompa Air (Alkon))</td>
+            <td> - </td>
+            <td>Hibah</td>
+            <td> - </td>
+        </tr>
+         <tr class="Bunga-Padi">            
+            <td>Pompa Irigasi</td>
+            <td> - </td>
+            <td>Hibah</td>
+            <td>-</td>
+        </tr>
+       <tr class="Batuah">
+            <td rowspan="2"> Batuah</td>
+            <td>Hand Traktor Rotary Yanmar</td>
+            <td> - </td>
+            <td>KSO/Sewa</td>
+            <td> - </td>
+        </tr>
+        
+        <tr class="Batuah">
+            <td>Mesin Pompa Air (Alkon))</td>
+            <td> - </td>
+            <td>Hibah</td>
+            <td> - </td>
+        </tr>
+        <tr class="Bunga-Padi-II">
+            <td rowspan="5"> Bunga Padi II</td>            
+            <td>Hand Traktor Rotary Yanmar</td>
+            <td> 2015 </td>
+            <td>KSO/Sewa</td>
+            <td> Baik </td>
+        </tr>
+         <tr class="Bunga-Padi-II">            
+            <td>Hand Traktor Rotary Kubota</td>
+            <td> 2016 </td>
+            <td>Hibah</td>
+            <td>Baik</td>
+        </tr>
+        <tr class="Bunga-Padi-II">            
+            <td>Perontok Padi (Threhser)
+
+</td>
+            <td> 2016 </td>
+            <td>Hibah</td>
+            <td>Baik</td>
+        </tr>
+        <tr class="Bunga-Padi-II">            
+            <td>Perontok Padi (Threhser) sistem ayak
+
+</td>
+            <td> 2017 </td>
+            <td>Hibah</td>
+            <td>Baik</td>
+        </tr>
+        <tr class="Bunga-Padi-II">            
+            <td>Mesin Pompa Air (Alkon)
+
+</td>
+            <td> 2015 </td>
+            <td>Hibah</td>
+            <td>Perlu Perbaikan</td>
+        </tr>
+       
+       
+    </tbody>
+</table>
+
+
+
+
+
+</div>
+
+<!-- Floating Window -->
+<div id="floating-window" class="floating-window">
+    <div class="floating-window-content">
+        <span class="close-button" onclick="closeFloatingWindow()">&times;</span>
+        <div id="profile-info"></div>
+    </div>
+</div>
+
+<script>
+    // Generate 71 members for Bunga Padi
+    function getBungaPadiMembers() {
+        let members = [];
+        for (let i = 1; i <= 71; i++) {
+            members.push('Anggota ' + i);
+        }
+        return members;
+    }
+
+    // Generate 15 members for Bunga Padi II
+    function getBungaPadiIIMembers() {
+        let members = [];
+        for (let i = 1; i <= 15; i++) {
+            members.push('Anggota ' + i);
+        }
+        return members;
+    }
+
+    // Generate land info for Bunga Padi
+    function getBungaPadiLandInfo() {
+        let landInfo = {};
+        for (let i = 1; i <= 71; i++) {
+            landInfo['Anggota ' + i] = {
+                'Luas': (i % 5 + 1).toString(),
+                'Koordinat1': '-7.276' + (i % 10) + ', 112.74' + (i % 10),
+                'Koordinat2': '-7.277' + (i % 10) + ', 112.75' + (i % 10)
+            };
+        }
+        return landInfo;
+    }
+
+    // Generate land info for Bunga Padi II
+    function getBungaPadiIILandInfo() {
+        let landInfo = {};
+        for (let i = 1; i <= 15; i++) {
+            landInfo['Anggota ' + i] = {
+                'Luas': (i % 5 + 1).toString(),
+                'Koordinat1': '-7.276' + (i % 10) + ', 112.74' + (i % 10),
+                'Koordinat2': '-7.277' + (i % 10) + ', 112.75' + (i % 10)
+            };
+        }
+        return landInfo;
+    }
+
+   function showProfile(poktanName, description, address, phone, coordinates, imageSrc, registerNumber, formationYear, poktanClass) {
+    var profileText = "<div class='profile-heading'>" + poktanName + "</div>";
+    profileText += "<div class='profile-image-container'>"; // Add wrapper for the image
+    profileText += "<img src='" + imageSrc + "' alt='Profile Image' class='profile-image'>";
+    profileText += "</div>"; // Close wrapper for the image
+    profileText += "<div class='biodata-label'></div> <div>" + description + "</div>";
+    profileText += "<div class='biodata-label'>Alamat Poktan:</div> <div>" + address + "</div>";
+    profileText += "<div class='biodata-label'>Nomor Register:</div> <div>" + registerNumber + "</div>"; // Add registration number
+    profileText += "<div class='biodata-label'>Dibentuk:</div> <div>" + formationYear + "</div>"; // Add formation year
+    profileText += "<div class='biodata-label'>Kelas Poktan:</div> <div>" + poktanClass + "</div>"; // Add Poktan class
+    profileText += "<div class='biodata-label'>Hp/Wa:</div> <div>" + phone + "</div>";
+    profileText += "<div class='biodata-label'>Koordinat Lahan:</div> <div><a href='https://www.google.com/maps?q=" + coordinates + "' target='_blank'>" + coordinates + "</a></div>";   
+    document.getElementById('profile-info').innerHTML = profileText;
+    document.getElementById('floating-window').style.display = 'block';
+}
+
+function showManagerInfo(name, address, phone, coordinates, imageSrc) {
+    var managerInfoText = "<div class='profile-heading'>" + name + "</div>";
+    managerInfoText += "<div class='profile-image-container'>"; // Tambahkan wrapper untuk gambar
+    managerInfoText += "<img src='" + imageSrc + "' alt='Manager Image' class='profile-image'>";
+    managerInfoText += "</div>"; // Tutup wrapper untuk gambar
+    managerInfoText += "<div class='biodata-label'>Alamat:</div> <div>" + address + "</div>";
+    managerInfoText += "<div class='biodata-label'>Telepon :</div> <div>" + phone + "</div>";
+    managerInfoText += "<div class='biodata-label'>Koordinat:</div> <div><a href='https://www.google.com/maps?q=" + coordinates + "' target='_blank'>" + coordinates + "</a></div>";
+    document.getElementById('profile-info').innerHTML = managerInfoText;
+    document.getElementById('floating-window').style.display = 'block';
+}
+
+
+
+    function showMembers(poktanName, members) {
+        var memberList = "<div class='profile-heading'>Anggota " + poktanName + "</div><ul>";
+        members.forEach(function(member) {
+            memberList += "<li>" + member + "</li>";
+        });
+        memberList += "</ul>";
+        document.getElementById('profile-info').innerHTML = memberList;
+        document.getElementById('floating-window').style.display = 'block';
+    }
+
+  // Fungsi untuk menampilkan informasi lahan
+function showLandInfo(poktanName, landInfo) {
+    var landInfoText = "<h2>Info Lahan " + poktanName + "</h2><table class='land-info-table'>";
+    landInfoText += "<tr><th>Nama</th><th>Luas Lahan (hektar)</th><th>Koordinat 1</th><th>Koordinat 2</th></tr>";
+    for (var key in landInfo) {
+        if (landInfo.hasOwnProperty(key)) {
+            landInfoText += "<tr>";
+            landInfoText += "<td>" + key + "</td>";
+            landInfoText += "<td>" + landInfo[key].Luas + "</td>";
+            landInfoText += "<td><a href='https://www.google.com/maps?q=" + landInfo[key].Koordinat1 + "' target='_blank'>" + landInfo[key].Koordinat1 + "</a></td>";
+            landInfoText += "<td><a href='https://www.google.com/maps?q=" + landInfo[key].Koordinat2 + "' target='_blank'>" + landInfo[key].Koordinat2 + "</a></td>";
+            landInfoText += "</tr>";
+        }
+    }
+    landInfoText += "</table>";
+    document.getElementById('profile-info').innerHTML = landInfoText;
+    document.getElementById('floating-window').style.display = 'block';
+}
+
+
+
+    function closeFloatingWindow() {
+        document.getElementById('floating-window').style.display = 'none';
+    }
+</script>
+
+<section>
+    <div class="container">
+        <!-- Map -->
+        <div class="card">
+            <h2 class="card-title">Lokasi Kami</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2266371277325!2d114.735269!3d-3.176812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMNDDPzE1LjM3LjEiU!5e0!3m2!1sid!2sid!4v1648758999994!5m2!1sid!2sid" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p style="text-align:center;margin-top:10px;"> <a href="https://www.google.com/maps">Telusuri di Google Maps</a>.</p>
+        </div>
+
+        <!-- Kontak Kami -->
+        <div class="card contact-info">
+            <h2 class="card-title">Kontak Kami</h2>
+            <a href="mailto:contoh@email.com">bunga_padi2@yahoo.com</a>
+            <a href="https://wa.me/6285822477414">WhatsApp Bunga Padi II</a>
+        </div>
+    </div>
+</section>    
+
+<footer>
+    <p>Hak Cipta &copy; 2024 Bunga Padi II</p>
+</footer>
+
+</body>
+</html>
+</html>

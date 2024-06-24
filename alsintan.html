@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poktan Bunga Padi II</title>
+    <style>
+        /* CSS Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f1e5; /* Light beige for a natural feel */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #5e8c31; /* Green for crops */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            margin-top: 5px;
+            font-size: 14px; /* Decreased font size for the motto */
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #7a9e46; /* Darker green for navigation */
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #90b65c; /* Lighter green on hover */
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Map Styles */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            background-color: #f9f9f9; /* Light gray for contact info background */
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 18px; /* Font size for contact links */
+        }
+
+        .contact-info a:hover {
+            color: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #5e8c31; /* Green, matching the header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            clear: both;
+            margin-top: 20px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px; /* Decreased font size */
+        }
+
+        th, td {
+            padding: 5px; /* Decreased padding */
+            text-align: left;
+            border: 1px solid #ddd; /* Adding border for cells */
+        }
+
+        th {
+            background-color: #7a9e46; /* Darker green for table header */
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray for even rows */
+        }
+
+        tr:hover {
+            background-color: #ddd; /* Darker gray on hover */
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Adjust the width of the modal */
+        }
+
+        /* Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn button {
+            padding: 10px 20px;
+            background-color: #7a9e46;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn button:hover {
+            background-color: #90b65c; /* Lighter green on hover */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bunga Padi II</h1>
+    <h2>Bersatu Dalam Pertanian, Menuju Kesuksesaan</h2> <!-- Decreased font size for the motto -->
+</header>
+
+<nav>
+    <a href="beranda.html">Beranda</a>
+    <a href="adart.html">Adart</a>
+    <a href="struktur.html">Struktur</a>
+    <a href="alsintan.html">  <span style="color: #FFFF00;">Alsintan</span>
+</a>
+    <a href="rdk,rdkk.html">Rdk/Rdkk</a>
+    <a href="kegiatan.html">Kegiatan</a>
+    <a href="luas lahan.html">Luas Lahan</a>
+    <a href="kendala.html">Kendala</a>
+    <a href="hama  penyakit.html">Hama/Penyakit</a>
+    <a href="pembiatan organik.html">Pembuatan Organik</a>
+    <a href="poktan sampurna.html">Poktan Sampurna</a>
+    <a href="gapoktan.html">Gapoktan Sampurna</a>
+    <a href="kube.html">KUBE Jejangkit</a>
+    <a href="kendala.html">BPP Jejangkit</a>
+</nav>
+
+<section>
+    <div class="container">
+        <!-- Table Post -->
+        <div class="card">
+            <h2 class="card-title">Alsintan Bunga Padi II</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jenis Alsintan</th>
+                        <th>Status Alsintan</th>
+                        <th>Tahun</th>
+                        <th>Kondisi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Traktor Yanmar</td>
+                        <td>KSO/Sewa</td>
+                        <td>2015</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <td>Traktor Kubota</td>
+                        <td>Hibah Kementrian</td>
+                        <td>2016</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <td>Pompa Air</td>
+                        <td>Hibah Distan</td>
+                        <td>2015</td>
+                        <td>Rusak</td>
+                    </tr>
+                    <tr>
+                        <td>Perontok Padi (Thresher) (tanpa Ayak/Saringan)</td>
+                        <td>Hibah Distan</td>
+                        <td>2016</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <td>Perontok Padi (Theresher)(Ayak/Saringan)</td>
+                        <td>Hibah Distan</td>
+                        <td>2017</td>
+                        <td>Baik</td>
+                    </tr>
+                </tbody>
+            </table>
+            Sesuai kesepakatan Upah traktor Naik menjadi Rp. 7.500,00 /borong (khus anggota kelompok yang memenuhi syarat dan peraturan kelompok) diluar dari itu upah mengikuti standar.
+        </div>
+
+        <!-- Teks tentang Alsintan Kelompok -->
+        <div class="card">
+            <h2 class="card-title">Alsintan Kelompok</h2>
+            <p class="card-description">
+                Alsintan kelompok adalah milik bersama sehingga semua anggota memiliki hak dan kewajiban yang sama dalam pengelolaan dan perawatan sesuai syarat dan peraturan kelompok yang telah disepakati bersama.
+            </p>
+
+            <!-- Button to open modal for Peraturan Kelompok -->
+            <div class="btn">
+                <button id="openModalBtn">Lihat Syarat dan Peraturan Kelompok</button>
+            </div>
+        </div>
+
+        <!-- Modal untuk Peraturan Kelompok -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Peraturan Kelompok Bunga Padi II </h2>    
+                    <li>Setiap anggota wajib memberitahu pengurus selambat-lambatnya 1 mingggu jika ingin menggunakan ALSINTAN (untuk mpermudah penyusunan jadwal kerja alat).</li>
+                    <li>Setiap anggota memiliki kewajiban untuk membayar kas tahunan setelah menggunakan ALSINTAN di akhir tahun (setelah musim panen).</li>
+                    <li> Penggarapan lahan anggota di utamakan 2 Ha, jika anggota memiliki lahan lebih dari 2 Ha, maka penggarapan lahan berikutnya menunggu jadwal.  </li>              <li>Dilarang menggunakan Alsintan untuk orang lain, anak yang sudah berumah tangga tanpa alasan apapun. </li>
+                    <li>Dilarang menggunakan alsin tanpa izin dari pengurus kelompok.</li>
+                    <!-- Tambahkan peraturan lain sesuai kebutuhan -->
+                </ul>
+                <h2> Syarat anggota yang dapat menggunakan ALSINTAN</h2>
+                <UL>
+                    <LI>Membayar kas Rp.750.000,00 untuk anggota baru.</LI>
+                    <li>membayar kas tahunanan.</li>
+                    <li>Mematuhi peraturan kelompok.</li>
+                </UL>
+                &nbsp;
+                <b>Catatan</b>
+                <p><em> Jika anggota melanggar atau tidak mematuhi syarat dan pertauran kelompok, maka hak dan kewajibannya dalam alsintan dihapus. Jika anggota yang telah dihapus hak dan kewajibannya dalam ALSINTAN ingin kembali menggunakan ALSINTAN harus kembali memenuhi syarat sebagai anggota baru, serta wajib untuk mematuhi syarat dan peraturan kelompok.</em></p>
+            </div>
+        </div>
+<!-- Map --> <div class="card"> <h2 class="card-title">Lokasi Kami</h2> <div class="map-container"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2266371277325!2d114.735269!3d-3.176812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMNDDPzE1LjM3LjEiU!5e0!3m2!1sid!2sid!4v1648758999994!5m2!1sid!2sid" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy"></iframe> </div> <p style="text-align:center;margin-top:10px;"> <a href="https://www.google.com/maps">Telusuri di Google Maps</a>.</p> </div> <!-- Contact Info --> <div class="card contact-info"> <h2 class="card-title">Kontak Kami</h2> <a href="mailto:contoh@email.com">bunga_padi2@yahoo.com</a> <a href="https://wa.me/6285822477414">WhatsApp Bunga Padi II</a> </div>
+        <!-- Other sections ... -->
+    </div>
+</section>
+
+<footer>
+    <p>Hak Cipta &copy; 2024 Bunga Padi II</p>
+</footer>
+
+<script>
+// JavaScript for modal functionality
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("openModalBtn");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

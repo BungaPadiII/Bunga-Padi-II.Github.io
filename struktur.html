@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Struktur Poktan Bunga Padi II</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<style>
+     /* CSS Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f1e5; /* Light beige for a natural feel *
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #5e8c31; /* Green for crops */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            margin-top: 5px;
+            font-size: 14px; /* Decreased font size for the motto */
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #7a9e46; /* Darker green for navigation */
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #90b65c; /* Lighter green on hover */
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Map Styles */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            background-color: #f9f9f9; /* Light gray for contact info background */
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 18px; /* Font size for contact links */
+        }
+
+        .contact-info a:hover {
+            color: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #5e8c31; /* Green, matching the header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            clear: both;
+            margin-top: 20px;
+        }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h3 {
+    text-align: center;
+    color: #333;
+  }
+  #chart_div {
+    margin: 20px auto;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding: 20px;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out forwards;
+    max-width: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .close {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+    color: #999;
+    font-size: 40px;
+  }
+  .close:hover {
+    color: #666;
+  }
+  .info {
+    font-size: 16px;
+  }
+   .Status {
+     font-size: 16px;
+     font-weight: bold;
+  }
+  .jabatan {
+    font-weight: bold;
+    color: #228B22; /* Hijau Tua */
+  }
+  .nama {
+    font-size: 30px;
+    text-align: center;
+    color: #228B22; /* Hijau Tua */
+  }
+  .koordinat {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .luas-lahan {
+    margin-top: 10px;
+    font-weight: bold;   
+    }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Bunga Padi II</h1>
+    <h2>Bersatu Dalam Pertanian, Menuju Kesuksesaan</h2> <!-- Decreased font size for the motto -->
+</header>
+
+<nav>
+    <a href="beranda.html">Beranda</a>
+    <a href="adart.html">Adart</a>
+    <a href="struktur.html"><span style="color: #FFFF00;">Struktur</span>
+</a>
+    <a href="alsintan.html">Alsintan</a>
+    <a href="rdk,rdkk.html">Rdk/Rdkk</a>
+    <a href="kegiatan">Kegiatan</a>
+    <a href="luas lahan.html">Luas Lahan</a>
+    <a href="kendala.html">Kendala</a>
+    <a href="hama penyakit.html">Hama/Penyakit</a>
+    <a href="pembuatan orgnaik.html">Pembuatan Organik</a>
+     <a href="poktan sampurna.html">Poktan Sampurna</a>
+      <a href="gapoktan.html">Gapoktan Sampurna</a>
+       <a href="kube.html">KUBE Jejagkit</a>
+        <a href="bpp.html">BPP Jejangkit</a>
+</nav>
+<script type="text/javascript">
+  google.charts.load('current', {packages:["orgchart"]});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Nama');
+    data.addColumn('string', 'Atasan');
+    data.addColumn('string', 'Informasi');
+    data.addRows([
+      ['<span class="jabatan">Ketua</span><br>Arbani', '', '<span class="nama">Arbani</span><br><span class="luas-lahan">Luas Lahan: <sup></sup></span><br>2 Ha<br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.123456,106.789012" target="_blank">-6.123456, 106.789012</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.789012,106.123456" target="_blank">-6.789012, 106.123456</a><br><span class="Status"> Status Kepemilikan: <span></span></span>Pemilik, Penggarap'],
+      ['<span class="jabatan">Sekretaris</span><br>Mukhsin', '<span class="jabatan">Ketua</span><br>Arbani', '<span class="nama">Mukhsin</span><br><span class="luas-lahan">Luas Lahan: 3000 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.234567,106.890123" target="_blank">-6.234567, 106.890123</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.890123,106.234567" target="_blank">-6.890123, 106.234567</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Bendahara</span><br>Emuh', '<span class="jabatan">Ketua</span><br>Arbani', '<span class="nama">Emuh</span><br><span class="luas-lahan">Luas Lahan: 4000 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.345678,106.456789" target="_blank">-6.345678, 106.456789</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.901234,106.901234" target="_blank">-6.901234, 106.901234</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>A.Nur Rohman', '<span class="jabatan">Sekretaris</span><br>Mukhsin', '<span class="nama">Ahmad Nur Rohman</span><br><span class="luas-lahan">Luas Lahan: 2500 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.456789,106.567890" target="_blank">-6.456789, 106.567890</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.012345,106.901234" target="_blank">-6.012345, 106.901234</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Dudung', '<span class="jabatan">Sekretaris</span><br>Mukhsin', '<span class="nama">Dudung</span><br><span class="luas-lahan">Luas Lahan: 3500 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.567890,106.678901" target="_blank">-6.567890, 106.678901</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.123456,106.234567" target="_blank">-6.123456, 106.234567</a><br>Status Kepemilikan: Pemilik dan Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Fauzi', '<span class="jabatan">Bendahara</span><br>Emuh', '<span class="nama">Fauzi</span><br><span class="luas-lahan">Luas Lahan: 2000 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.678901,106.789012" target="_blank">-6.678901, 106.789012</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.234567,106.345678" target="_blank">-6.234567, 106.345678</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Horman', '<span class="jabatan">Bendahara</span><br>Emuh', '<span class="nama">Horman</span><br><span class="luas-lahan">Luas Lahan: 4500 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.789012,106.890123" target="_blank">-6.789012, 106.890123</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.345678,106.456789" target="_blank">-6.345678, 106.456789</a><br>Status Kepemilikan: Pemilik dan Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Juniamsyah', '<span class="jabatan">Anggota</span><br>A.Nur Rohman', '<span class="nama">Juniamsyah</span><br><span class="luas-lahan">Luas Lahan: 3200 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.890123,106.901234" target="_blank">-6.890123, 106.901234</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.456789,106.567890" target="_blank">-6.456789, 106.567890</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Muhammad Saubari', '<span class="jabatan">Anggota</span><br>Dudung', '<span class="nama">Muhammad Saubari</span><br><span class="luas-lahan">Luas Lahan: 3800 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.901234,106.012345" target="_blank">-6.901234, 106.012345</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.567890,106.678901" target="_blank">-6.567890, 106.678901</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Muhammad Misransyah', '<span class="jabatan">Anggota</span><br>Fauzi', '<span class="nama">Muhammad Misransyah</span><br><span class="luas-lahan">Luas Lahan: 4100 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.012345,106.123456" target="_blank">-6.012345, 106.123456</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.678901,106.789012" target="_blank">-6.678901, 106.789012</a><br>Status Kepemilikan: Pemilik dan Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Muhammad Nor', '<span class="jabatan">Anggota</span><br>Horman', '<span class="nama">Muhammad Nor</span><br><span class="luas-lahan">Luas Lahan: 3700 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.123456,106.901234" target="_blank">-6.123456, 106.901234</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.789012,106.345678" target="_blank">-6.789012, 106.345678</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Mukhtar', '<span class="jabatan">Anggota</span><br>Juniamsyah', '<span class="nama">Mukhtar</span><br><span class="luas-lahan">Luas Lahan: 2900 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.234567,106.789012" target="_blank">-6.234567, 106.789012</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.901234,106.012345" target="_blank">-6.901234, 106.012345</a><br>Status Kepemilikan: Pemilik</span>'],
+      ['<span class="jabatan">Anggota</span><br>Salim', '<span class="jabatan">Anggota</span><br>Muhammad Saubari', '<span class="nama">Salim</span><br><span class="luas-lahan">Luas Lahan: 4200 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.345678,106.789012" target="_blank">-6.345678, 106.789012</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.901234,106.234567" target="_blank">-6.901234, 106.234567</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Syamsuri', '<span class="jabatan">Anggota</span><br>Muhammad Misransyah', '<span class="nama">Syamsuri</span><br><span class="luas-lahan">Luas Lahan: 3900 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.789012,106.678901" target="_blank">-6.789012, 106.678901</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.234567,106.345678" target="_blank">-6.234567, 106.345678</a><br>Status Kepemilikan: Penggarap</span>'],
+      ['<span class="jabatan">Anggota</span><br>Wardi', '<span class="jabatan">Anggota</span><br>Muhammad Nor', '<span class="nama">Wardi</span><br><span class="luas-lahan">Luas Lahan: 4300 m<sup>2</sup></span><br><br><span class="koordinat">Koordinat Lahan 1:</span> <a href="https://www.google.com/maps?q=-6.234567,106.456789" target="_blank">-6.234567, 106.456789</a><br><span class="koordinat">Koordinat Lahan 2:</span> <a href="https://www.google.com/maps?q=-6.789012,106.901234" target="_blank">-6.789012, 106.901234</a><br>Status Kepemilikan: Pemilik Dan Penggarap</span>']
+    ]);
+
+    var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+
+    google.visualization.events.addListener(chart, 'select', function() {
+      var selectedItem = chart.getSelection()[0];
+      if (selectedItem) {
+        var selectedRow = selectedItem.row;
+        var info = data.getValue(selectedRow, 2);
+        showModal(info);
+      }
+    });
+
+    chart.draw(data, {allowHtml:true});
+  }
+
+  function showModal(info) {
+    var modal = document.getElementById('modal');
+    var modalContent = document.getElementById('modal_content');
+    var closeBtn = document.getElementById('close');
+
+    modalContent.innerHTML = info;
+    modal.style.animation = 'fadeIn 0.3s ease-out forwards';
+    modal.style.display = 'block';
+
+    closeBtn.onclick = function() {
+      modal.style.animation = 'fadeOut 0.3s ease-out forwards';
+      setTimeout(function() {
+        modal.style.display = 'none';
+      }, 300);
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.animation = 'fadeOut 0.3s ease-out forwards';
+        setTimeout(function() {
+          modal.style.display = 'none';
+        }, 300);
+      }
+    }
+  }
+</script>
+</head>
+<body>
+<div class="container">
+  <h2>Struktur Poktan Bunga Padi II</h2>
+  <div id="chart_div"></div>
+</div>
+
+<div id="modal" class="modal">
+  <div id="modal_content">
+    <!-- Modal content -->
+    
+  </div>
+  <span class="close" id="close">&times;</span>
+</div>
+<section>
+    <div class="container">
+        <!-- Map -->
+        <div class="card">
+            <h2 class="card-title">Lokasi Kami</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2266371277325!2d114.735269!3d-3.176812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMNDDPzE1LjM3LjEiU!5e0!3m2!1sid!2sid!4v1648758999994!5m2!1sid!2sid" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p style="text-align:center;margin-top:10px;"> <a href="https://www.google.com/maps">Telusuri di Google Maps</a>.</p>
+        </div>
+
+        <!-- Kontak Kami -->
+        <div class="card contact-info">
+            <h2 class="card-title">Kontak Kami</h2>
+            <a href="mailto:contoh@email.com">bunga_padi2@yahoo.com</a>
+            <a href="https://wa.me/6285822477414">WhatsApp Bunga Padi II</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Hak Cipta &copy; 2024 Bunga Padi II</p>
+</footer>
+
+</body>
+</html>
